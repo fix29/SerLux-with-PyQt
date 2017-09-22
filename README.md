@@ -1,2 +1,2 @@
 # SerLux-with-PyQt
-First attempt
+Simple writing and reading data from arduino through PC via PyQt
