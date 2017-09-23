@@ -36,7 +36,7 @@ void loop() // put your main code here, to run repeatedly:
        map(derajat,0,180,0,255);
       }
     }
-    else //led @pin 8 mati dan hidup sesuai persyaratan di bawah
+    else //led @pin 13 mati atau hidup sesuai persyaratan di bawah
     {
        int nilai_ldr1= analogRead(A0);
         
@@ -71,7 +71,7 @@ void loop() // put your main code here, to run repeatedly:
         // Tahap akhir - Konversi ldrResistance ke ldrLux ->> unit dalam Lux telah didapat (estimasi)
         ldrLux = LUX_CALC_SCALAR * pow(ldrResistance, LUX_CALC_EXPONENT);
         cont1 = ldrLux;
-
+        
         Serial.println(cont1);
     }
   }
