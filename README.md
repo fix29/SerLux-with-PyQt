@@ -4,7 +4,7 @@ Simple writing and reading data from arduino through PC via PyQt.
 ![screenshoot.png](https://github.com/fix29/SerLux-with-PyQt/blob/master/Images/screenshoot.png)
 
 # What data?
-* Writing : write down angle value (in degree) to servo
+* Writing : write angle value (in degree) to servo
 * Reading : read raw sensor data from A0 and convert it to "Lux". 
 
 There you have it, a simple servo control and poor man's Lux meter.
