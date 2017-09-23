@@ -3,8 +3,8 @@ Servo srvosaya;
 int derajat = 0; //variabel untuk menyimpan nilai 'derajat'
 int nilai_ldr = 0; //variabel untuk menyimpan 'nilai_ldr'
 int cont1 = 0; //variabel konversi dari data mentah ke Lux
-int batasBawah = 270; //var. sebagai baseline bawah
-int batasAtas = 520; //var. sebagai baseline atas
+int batasBawah = 350; //var. sebagai baseline bawah
+int batasAtas = 550; //var. sebagai baseline atas
 int ledku = 8; //led saya terpasang pada pin digital #8
 
 /**************************************************************************/
