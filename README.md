@@ -1,7 +1,7 @@
 # SerLux-with-PyQt
 Simple writing and reading data from arduino through PC via PyQt.
 
-
+![screenshoot.png](https://github.com/fix29/SerLux-with-PyQt/blob/master/Images/screenshoot.png)
 
 # What data?
 * Writing : write down angle value (in degree) to servo
