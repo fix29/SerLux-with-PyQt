@@ -5,7 +5,7 @@ int nilai_ldr = 0; //variabel untuk menyimpan 'nilai_ldr'
 int cont1 = 0; //variabel konversi dari data mentah ke Lux
 int batasBawah = 350; //var. sebagai baseline bawah
 int batasAtas = 550; //var. sebagai baseline atas
-int ledku = 8; //led saya terpasang pada pin digital #8
+int ledku = 13; //led terpasang pada pin digital #13
 
 /**************************************************************************/
 #define MAX_ADC_READING           1023 //Karena resolusi ADC nya 10bits
