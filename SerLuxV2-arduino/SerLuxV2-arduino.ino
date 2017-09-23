@@ -71,6 +71,7 @@ void loop() // put your main code here, to run repeatedly:
         // Tahap akhir - Konversi ldrResistance ke ldrLux ->> unit dalam Lux telah didapat (estimasi)
         ldrLux = LUX_CALC_SCALAR * pow(ldrResistance, LUX_CALC_EXPONENT);
         cont1 = ldrLux;
-        
+
+        Serial.println(cont1);
     }
   }
