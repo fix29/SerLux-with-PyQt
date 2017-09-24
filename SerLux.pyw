@@ -5,7 +5,7 @@ import serial
 import sys, time, os
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtGui import QAction, QApplication, QFrame, QIcon, QMainWindow, QMenu, QSystemTrayIcon
-from srvosaya import Ui_Dialog
+from servosaya import Ui_Dialog
 from contextlib import contextmanager
 
 class Workthread(QtCore.QThread):
