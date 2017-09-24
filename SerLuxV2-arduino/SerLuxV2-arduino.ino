@@ -4,7 +4,7 @@ int derajat = 0; //variabel untuk menyimpan nilai 'derajat'
 int nilai_ldr = 0; //variabel untuk menyimpan 'nilai_ldr'
 int cont1 = 0; //variabel konversi dari data mentah ke Lux
 int batasBawah = 350; //var. sebagai baseline bawah
-int batasAtas = 550; //var. sebagai baseline atas
+int batasAtas = 600; //var. sebagai baseline atas
 int ledku = 13; //led terpasang pada pin digital #13
 
 /**************************************************************************/
@@ -47,7 +47,7 @@ void loop() // put your main code here, to run repeatedly:
                digitalWrite(ledku, LOW);
                }
                
-//***********Proses tahapan konversi dari data raw A0 ke 'Lux'******************//  
+/***********Proses tahapan konversi dari data raw A0 ke 'Lux'******************/
         int   ldrRawData;
         float resistorVoltage, ldrVoltage;
         float ldrResistance;
@@ -71,7 +71,7 @@ void loop() // put your main code here, to run repeatedly:
         // Tahap akhir - Konversi ldrResistance ke ldrLux ->> unit dalam Lux telah didapat (estimasi)
         ldrLux = LUX_CALC_SCALAR * pow(ldrResistance, LUX_CALC_EXPONENT);
         cont1 = ldrLux;
-        
+/*******************************************************************************/
         Serial.println(cont1);
     }
   }
