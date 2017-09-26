@@ -6,7 +6,6 @@ import sys, time, os
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtGui import QAction, QApplication, QFrame,QDialog, QIcon, QMainWindow, QMenu, QSystemTrayIcon
 from newstyle import Ui_Dialog
-from contextlib import contextmanager
 
 class Workthread(QtCore.QThread):
         def __init__(self, parent = None):
@@ -21,11 +20,6 @@ class Workthread(QtCore.QThread):
                         self.wert = str(self.parent.mukri())
                         self.emit( QtCore.SIGNAL('update(QString)'), self.wert )
                 return
-class Ui_Dialog1(object):
-    def setupUi(self, Dialog):
-        Dialog.resize(400, 300)
-        Dialog.setAutoFillBackground(False)
-        Dialog.setStyleSheet("QDialog{Background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(158, 158, 158, 255), stop:1 rgba(255, 255, 255, 255));}")
                                 
 class Window(QDialog):
     def __init__(self, parent=None):
@@ -33,10 +27,10 @@ class Window(QDialog):
         self.setWindowFlags(QtCore.Qt.Window | QtCore.Qt.FramelessWindowHint)
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
-        self.ui.pushButton.clicked.connect(lambda: self.Konek_Arduino())
-        self.ui.pushButton_2.clicked.connect(lambda: self.closer())
+        self.ui.pushButton.clicked.connect(self.Konek_Arduino)
+        self.ui.pushButton_2.clicked.connect(self.closer)
         self.ui.horizontalSlider.setEnabled(False)
-        self.ui.horizontalSlider.valueChanged.connect(lambda: self.test())
+        self.ui.horizontalSlider.valueChanged.connect(self.test)
     def test(self):
                 self.ui.label_4.setText(str(self.ui.horizontalSlider.value()))
                 if(self.ui.horizontalSlider.value()>=0):
@@ -84,14 +78,11 @@ class Window(QDialog):
                         self.MessageBox('PERINGATAN','Arduino tidak ditemukan!')
                                 
                        if len(arduino_ports) > 1:
-                            warnings.warn('Arduino lain ditemukan - Gunakan yang pertama!') 
-                       sys.exit()
+                        warnings.warn('Arduino lain ditemukan - Gunakan yang pertama!') 
+                       
     def closer(self):
-                    try:
-                        self.ser.close();
-                        self.close()
-                    except:
-                        self.close()
+                    sys.exit()
+                    
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     myapp = Window()
