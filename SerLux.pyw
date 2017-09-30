@@ -4,7 +4,7 @@ import sip
 import serial
 import sys, time, os
 from PyQt4 import QtGui, QtCore
-from PyQt4.QtGui import QAction, QApplication, QFrame,QDialog, QIcon, QMainWindow, QMenu, QSystemTrayIcon
+from PyQt4.QtGui import QAction, QMessageBox, QApplication,QFrame, QDialog, QIcon, QMainWindow, QMenu, QSystemTrayIcon
 from newstyle import Ui_Dialog
 
 class Workthread(QtCore.QThread):
@@ -18,7 +18,7 @@ class Workthread(QtCore.QThread):
                 while True:
                         time.sleep(.2)
                         self.wert = str(self.parent.mukri())
-                        self.emit( QtCore.SIGNAL('update(QString)'), self.wert )
+                        self.emit(QtCore.SIGNAL('update(QString)'), self.wert)
                 return
                                 
 class Window(QDialog):
@@ -35,13 +35,6 @@ class Window(QDialog):
                 self.ui.label_4.setText(str(self.ui.horizontalSlider.value()))
                 if(self.ui.horizontalSlider.value()>=0):
                         self.ser.write(str(self.ui.horizontalSlider.value())+str("\r\n"))
-    def MessageBox(self,title,message):
-                msgBox = QtGui.QMessageBox()
-                msgBox.setIcon(QtGui.QMessageBox.Warning)
-                msgBox.setWindowTitle(title)
-                msgBox.setText(message)
-                msgBox.setStandardButtons(QtGui.QMessageBox.Ok)
-                msgBox.exec_()
     def mukri(self):
                 buffer = ''
                         
@@ -71,11 +64,11 @@ class Window(QDialog):
                         self.ui.pushButton.setEnabled(False)
                         self.ui.horizontalSlider.setEnabled(True)
                         self.workThread = Workthread(self)
-                        self.connect( self.workThread, QtCore.SIGNAL("update(QString)"), self.dummy )
+                        self.connect(self.workThread, QtCore.SIGNAL("update(QString)"), self.dummy)
                         self.workThread.start()
                 except:
                        if not arduino_ports:
-                        self.MessageBox('PERINGATAN','Arduino tidak ditemukan!')
+                        QMessageBox.warning(self, 'PERINGATAN','Arduino tidak ditemukan!')
                                 
                        if len(arduino_ports) > 1:
                         warnings.warn('Arduino lain ditemukan - Gunakan yang pertama!') 
