@@ -18,7 +18,7 @@ There you have it, a simple servo control and poor man's Lux meter.
 
 * Photoresistor/LDR wiring:
 
-  Actually, this wiring is pretty much voltage divider which actively change its value depends on the amount of lights that shines on it.     The overlapped connection between LDR and resistor are fed to arduino's analog pin (A0). 
+  Actually, this wiring is pretty much voltage divider which actively change its value depends on the amount of light that shines on it.     The overlapped connection between LDR and resistor are fed to arduino's analog pin (A0). 
 
   **[EDIT]**
   
