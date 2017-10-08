@@ -12,13 +12,13 @@ There you have it, a simple servo control and poor man's Lux meter.
 # Wiring diagram
 * Servo wiring:
   
-  I was using JR style servo where **BROWN=GND, RED=5V** and **ORANGE=SIGNAL**. Other servo types can be seen [here](https://www.rcgroups.com/forums/showpost.php?p=31975310&postcount=9).
+  I used JR style servo with **BROWN=GND, RED=5V** and **ORANGE=SIGNAL**. Other servo types can be seen [here](https://www.rcgroups.com/forums/showpost.php?p=31975310&postcount=9).
 
 ![sweep_bb.png](https://github.com/fix29/SerLux-with-PyQt/blob/master/Images/sweep_bb.png)
 
 * Photoresistor/LDR wiring:
 
-  Actually this wiring is simply voltage divider which actively change its value depends on the amount of lights that shines on it.     The overlapped connection between LDR and resistor are fed to arduino's analog pin (A0). 
+  Actually, this wiring is pretty much voltage divider which actively change its value depends on the amount of lights that shines on it.     The overlapped connection between LDR and resistor are fed to arduino's analog pin (A0). 
 
   **[EDIT]**
   
